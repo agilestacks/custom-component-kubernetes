@@ -1,0 +1,28 @@
+---
+version: 1
+kind: component
+meta:
+  name: custom-component
+  source:
+    dir: .
+
+lifecycle:
+  verbs:
+    - deploy
+    - undeploy
+
+parameters:
+  - name: dns.domain
+    env: DOMAIN_NAME
+  - name: component.custom-component
+    parameters:
+    - name: name
+      value: custom
+      env: COMPONENT_NAME
+    - name: namespace
+      value: custom-namespace
+      env: NAMESPACE
+
+templates:
+  files:
+    - "templates/*.template"
