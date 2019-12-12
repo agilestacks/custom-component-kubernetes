@@ -4,10 +4,11 @@ COMPONENT_NAME ?= custom-component
 DOMAIN_NAME    ?= superhub.io
 NAMESPACE      ?= custom-component-namespace
 
-kubectl ?= kubectl --context="$(DOMAIN_NAME)" --namespace="$(NAMESPACE)"
+kubectl ?= kubectl --context="$(DOMAIN_NAME)"
 
 deploy:
-	@echo "Implement me"
+	-$(kubectl) create namespace $(NAMESPACE)
+	$(kubectl) --namespace $(NAMESPACE) apply -f kubernetes.yaml
 
 undeploy:
-	@echo "Implement me"
+	$(kubectl) --namespace $(NAMESPACE) delete -f kubernetes.yaml
