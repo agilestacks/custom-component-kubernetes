@@ -100,13 +100,14 @@ spec:
         ports:
         - containerPort: 80
           name: words-web
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: web-ingress
 spec:
   rules:
-  - host: ${hub.componentName}.${component.ingress.ssoFqdn}
+  - host: generated
     http:
       paths:
       - path: /
