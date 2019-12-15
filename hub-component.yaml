@@ -1,10 +1,16 @@
 ---
+# This is Automation Hub component deployment manifest
 version: 1
 kind: component
 meta:
   name: generated
   source:
     dir: .
+
+requires:
+  - kubernetes
+
+provides: []
 
 lifecycle:
   verbs:
@@ -15,6 +21,8 @@ parameters:
   - name: dns.domain
     env: DOMAIN_NAME
   - name: component.ingress.ssoFqdn
+
+outputs: []
 
 templates:
   files:
