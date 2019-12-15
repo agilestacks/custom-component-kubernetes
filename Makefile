@@ -8,7 +8,7 @@ kubectl ?= kubectl --context="$(DOMAIN_NAME)"
 
 deploy:
 	-$(kubectl) create namespace $(NAMESPACE)
-	$(kubectl) --namespace $(NAMESPACE) apply -f kubernetes.yaml
+	$(kubectl) --namespace $(NAMESPACE) apply -f templates/kubernetes.yaml
 
 undeploy:
-	$(kubectl) --namespace $(NAMESPACE) delete -f kubernetes.yaml
+	$(kubectl) --namespace $(NAMESPACE) delete -f templates/kubernetes.yaml
