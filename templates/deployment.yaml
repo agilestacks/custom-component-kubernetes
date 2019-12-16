@@ -6,6 +6,9 @@ metadata:
   labels:
     app: words-db
 spec:
+  selector:
+    matchLabels:
+      app: words-db
   template:
     metadata:
       labels:
@@ -26,6 +29,9 @@ metadata:
     app: words-api
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: words-api
   template:
     metadata:
       labels:
@@ -45,6 +51,9 @@ metadata:
   labels:
     app: words-web
 spec:
+  selector:
+    matchLabels:
+      app: words-web
   template:
     metadata:
       labels:
